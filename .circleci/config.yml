@@ -6,6 +6,6 @@ orbs:
 workflows:
   example-workflow:
       jobs:
-        - cypress/run:
+        - cypress-io/run:
             store_artifacts: true 
           
