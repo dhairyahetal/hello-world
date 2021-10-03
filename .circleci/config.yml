@@ -4,8 +4,7 @@ orbs:
   cypress: cypress-io/cypress@1.29.0
 # Orchestrate or schedule a set of jobs
 workflows:
- 
-    example-workflow:
+  example-workflow:
       jobs:
         - cypress/run:
             store_artifacts: true 
