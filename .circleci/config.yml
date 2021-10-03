@@ -7,6 +7,6 @@ orbs:
 workflows:
     build:
      jobs:
-      - cypress-io/run:
+      - cypress/run:
          yarn: true
           
