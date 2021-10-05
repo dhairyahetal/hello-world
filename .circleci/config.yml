@@ -8,11 +8,10 @@ orbs:
 # Orchestrate or schedule a set of jobs
 
 jobs:
-  example-job:
-    docker:
-      # replace with your preferred image
-        - image: circleci/node:12
+  newman-collection-run:
+    executor: newman/postman-newman-docker
     steps:
+     
       - checkout
       - run:
           name: Install dependencies
@@ -24,4 +23,4 @@ jobs:
 workflows:
   example-workflow:
     jobs:
-      - example-job
+      - newman-collection-run
