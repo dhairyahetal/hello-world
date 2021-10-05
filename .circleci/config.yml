@@ -8,10 +8,8 @@ orbs:
 # Orchestrate or schedule a set of jobs
 
 jobs:
-
   newman-collection-run:
     executor: newman/postman-newman-docker
-   
     steps:
       - checkout
       - run:
@@ -20,7 +18,6 @@ jobs:
       
       - newman/newman-run:
           collection: Tests.postman_collection.json   
-
                     
 workflows:
   example-workflow:
