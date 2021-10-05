@@ -4,7 +4,7 @@ version: 2.1
 
 orbs:
   newman: postman/newman@0.0.2
-
+  cypress: cypress-io/cypress@1.29.0  
 # Orchestrate or schedule a set of jobs
 
 jobs:
@@ -19,10 +19,12 @@ jobs:
           command: npm install
       
       - newman/newman-run:
-          collection: Tests.postman_collection.json                    
+          collection: Tests.postman_collection.json   
+
                     
 workflows:
   example-workflow:
     jobs:
-      -   newman-collection-run
-
+     -   newman-collection-run
+     -   cypress/install
+     -   cypress/run
