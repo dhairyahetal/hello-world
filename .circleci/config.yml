@@ -22,6 +22,7 @@ jobs:
 workflows:
   example-workflow:
     jobs:
-     -   newman-collection-run
      -   cypress/install
-     -   cypress/run
+     -   cypress/run 
+     -   newman-collection-run
+    
