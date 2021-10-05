@@ -8,19 +8,21 @@ orbs:
 # Orchestrate or schedule a set of jobs
 
 jobs:
+
   newman-collection-run:
     executor: newman/postman-newman-docker
+   
     steps:
-     
       - checkout
       - run:
           name: Install dependencies
           command: npm install
-     
+      
       - newman/newman-run:
-          collection: /tests/Tests.postman_collection.json                    
+          collection: Tests.postman_collection.json                    
                     
 workflows:
   example-workflow:
     jobs:
-      - newman-collection-run
+      -   newman-collection-run
+
