@@ -3,22 +3,27 @@ version: 2.1
 # Use a package of configuration called an orb.
 
 orbs:
-  cypress: cypress-io/cypress@1.29.0
   newman: postman/newman@0.0.2
 
 # Orchestrate or schedule a set of jobs
 
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+        - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+         name:tests
+         command:npm test   
+      - newman/newman-run:
+          collection: /tests/Tests.postman_collection.json                    
+                    
 workflows:
-
-example-workflow:
-      jobs:
-        - cypress/run:
-            yarn: true 
-
-       - build-postman-tests:
-            executor: newman/postman-newman-docker
-             steps:
-               - checkout
-               - newman/newman-run:
-                   collection: ./tests/Tests.postman_collection.json
-                      
+  example-workflow:
+    jobs:
+      - example-job
