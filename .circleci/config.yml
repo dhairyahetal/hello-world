@@ -16,9 +16,6 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install
-      - run:
-         name: Run tests
-         command: npm test   
       - newman/newman-run:
           collection:  tests/Restful_Booker_Collection.postman_collection.json                    
           environment: tests/Restful_Booker_Environment.postman_environment.json           
