@@ -18,8 +18,8 @@ jobs:
           name: Install dependencies
           command: npm install
       - run:
-         name:tests
-         command:npm test   
+         name: tests
+         command: npm test   
       - newman/newman-run:
           collection: /tests/Tests.postman_collection.json                    
                     
